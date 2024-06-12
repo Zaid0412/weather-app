@@ -233,6 +233,11 @@ header {
   flex-direction: column;
 }
 
+.today-weather:hover,
+.today-weather-gradient:hover {
+  transform: scale(1.01);
+}
+
 .today-weather {
   border-radius: 25px 0 0 25px;
   width: 275px;

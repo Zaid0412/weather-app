@@ -29,34 +29,36 @@ let weekdays = [
 ];
 
 export function buildPage(weatherData) {
-  let [yearNum, monthNum, dayNum] = weatherData.location.localtime.split("-");
-  let time = dayNum.split(" ")[1];
-  dayNum = dayNum.split(" ")[0];
-  const today = `${monthNum}/${dayNum}/${yearNum}, ${time} `;
-  curDay.textContent = weekdays[new Date().getDay()];
-  curDate.textContent = today;
+  if (weatherData != "") {
+    let [yearNum, monthNum, dayNum] = weatherData.location.localtime.split("-");
+    let time = dayNum.split(" ")[1];
+    dayNum = dayNum.split(" ")[0];
+    const today = `${monthNum}/${dayNum}/${yearNum}, ${time} `;
+    curDay.textContent = weekdays[new Date().getDay()];
+    curDate.textContent = today;
 
-  const region = weatherData.location.region;
-  const country = weatherData.location.country;
-  curLocation.textContent = `${region}, ${country}`;
+    const region = weatherData.location.region;
+    const country = weatherData.location.country;
+    curLocation.textContent = `${region}, ${country}`;
 
-  const tempC = weatherData.current.temp_c;
-  const condition = weatherData.current.condition.text;
-  curTemp.textContent = `${tempC}°C`;
-  curCondition.textContent = condition;
+    const tempC = weatherData.current.temp_c;
+    const condition = weatherData.current.condition.text;
+    curTemp.textContent = `${tempC}°C`;
+    curCondition.textContent = condition;
 
-  const precipitation = weatherData.current.precip_in;
-  const humidity = weatherData.current.humidity;
-  const windKph = weatherData.current.wind_kph;
+    const precipitation = weatherData.current.precip_in;
+    const humidity = weatherData.current.humidity;
+    const windKph = weatherData.current.wind_kph;
 
-  curPrecipitation.textContent = `${precipitation}mm`;
-  curHumidity.textContent = `${humidity}%`;
-  curWind.textContent = `${windKph} km/h`;
+    curPrecipitation.textContent = `${precipitation}mm`;
+    curHumidity.textContent = `${humidity}%`;
+    curWind.textContent = `${windKph} km/h`;
 
-  for (const hour of hourForecast) {
-    const curHourTemp =
-      weatherData.forecast.forecastday[0].hour[hour.dataset.hour].temp_c;
-    hour.nextElementSibling.textContent = `${curHourTemp}°C`;
+    for (const hour of hourForecast) {
+      const curHourTemp =
+        weatherData.forecast.forecastday[0].hour[hour.dataset.hour].temp_c;
+      hour.nextElementSibling.textContent = `${curHourTemp}°C`;
+    }
   }
 }
 
@@ -64,5 +66,4 @@ switchDegree.addEventListener("click", changeDegree);
 
 switchTheme.addEventListener("click", function () {
   body.classList.toggle("dark");
-  console.log(document.body.style.scrollbarTrackColor);
 });
