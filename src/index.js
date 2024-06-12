@@ -26,3 +26,10 @@ locationBtn.addEventListener("click", function (e) {
     })
     .catch((err) => console.log(`Error: ${err}`));
 });
+
+getWeather("Spain")
+  .then((res) => {
+    console.log(res);
+    buildPage(res);
+  })
+  .catch((err) => console.log(`Error: ${err}`));

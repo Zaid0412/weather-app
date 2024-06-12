@@ -1,3 +1,7 @@
+import { changeDegree } from "./changeDegree";
+
+const body = document.querySelector("body");
+
 const curDay = document.querySelector("#today-day");
 const curDate = document.querySelector("#today");
 const curLocation = document.querySelector("#cur-location");
@@ -9,8 +13,10 @@ const curHumidity = document.querySelector("#cur-humidity");
 const curWind = document.querySelector("#cur-wind");
 
 const switchDegree = document.querySelector("#color_mode");
+const switchTheme = document.querySelector("#theme-switch");
 
 const hourForecast = document.querySelectorAll(".hour-forecast");
+const hourForecastCnt = document.querySelector(".days");
 
 let weekdays = [
   "Sunday",
@@ -21,19 +27,6 @@ let weekdays = [
   "Friday",
   "Saturday",
 ];
-
-let tempUnit = "temp_c";
-let tempSymbol = "°C";
-
-switchDegree.addEventListener("click", () => {
-  if (switchDegree.checked) {
-    tempUnit = "temp_f";
-    tempSymbol = "°F";
-  } else if (!switchDegree.checked) {
-    tempUnit = "temp_c";
-    tempSymbol = "°C";
-  }
-});
 
 export function buildPage(weatherData) {
   let [yearNum, monthNum, dayNum] = weatherData.location.localtime.split("-");
@@ -47,7 +40,7 @@ export function buildPage(weatherData) {
   const country = weatherData.location.country;
   curLocation.textContent = `${region}, ${country}`;
 
-  const tempC = weatherData.current[tempUnit];
+  const tempC = weatherData.current.temp_c;
   const condition = weatherData.current.condition.text;
   curTemp.textContent = `${tempC}°C`;
   curCondition.textContent = condition;
@@ -62,7 +55,14 @@ export function buildPage(weatherData) {
 
   for (const hour of hourForecast) {
     const curHourTemp =
-      weatherData.forecast.forecastday[0].hour[hour.dataset.hour][tempUnit];
-    hour.nextElementSibling.textContent = `${curHourTemp}${tempSymbol}`;
+      weatherData.forecast.forecastday[0].hour[hour.dataset.hour].temp_c;
+    hour.nextElementSibling.textContent = `${curHourTemp}°C`;
   }
 }
+
+switchDegree.addEventListener("click", changeDegree);
+
+switchTheme.addEventListener("click", function () {
+  body.classList.toggle("dark");
+  console.log(document.body.style.scrollbarTrackColor);
+});

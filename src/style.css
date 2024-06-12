@@ -25,16 +25,25 @@ body {
   transition: all 200ms linear;
 }
 
+body.dark {
+  --background: #dedddd;
+  --primary-clr: #ffffff;
+  --secondary-clr: #222831;
+  --third-clr: #e2e2e2;
+}
+
 /* Header  */
 
 header {
   padding: 30px;
   box-sizing: border-box;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background-color: var(--primary-clr);
   width: 100vw;
   height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .btn-container {
@@ -52,6 +61,7 @@ header {
 .btn-color-mode-switch > label.btn-color-mode-switch-inner {
   color: var(--secondary-clr);
   border: 1px solid var(--secondary-clr);
+  box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2) inset;
 
   margin: 0px;
   width: 140px;
@@ -61,7 +71,6 @@ header {
   overflow: hidden;
   position: relative;
   transition: all 0.3s ease;
-  box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2) inset;
   display: block;
 }
 
@@ -130,6 +139,70 @@ header {
   right: auto;
   left: 20px;
   color: var(--secondary-clr);
+}
+
+.toggle-switch {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  --light: var(--secondary-clr);
+  --dark: #28292c;
+  --link: rgb(27, 129, 112);
+  --link-hover: rgb(24, 94, 82);
+}
+
+.switch-label {
+  border: 1px solid var(--secondary-clr);
+  box-shadow: 0px 0px 8px 0px rgba(255, 255, 255, 0.2) inset;
+
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background-color: var(--primary-clr);
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider {
+  background-color: var(--light);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  -webkit-box-shadow: inset 12px -4px 0px 0px var(--secondary-clr);
+  box-shadow: inset 12px -4px 0px 0px var(--secondary-clr);
+  background-color: var(--primary-clr);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.checkbox:checked ~ .slider::before {
+  -webkit-transform: translateX(50px);
+  -ms-transform: translateX(50px);
+  transform: translateX(50px);
+  background-color: var(--primary-clr);
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 /* Weather  */
