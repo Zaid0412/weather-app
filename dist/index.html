@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  <script defer src="bundle.js"></script></head>
+  <body>
+    <header>
+      <div class="btn-container">
+        <label class="switch btn-color-mode-switch">
+          <input value="1" id="color_mode" name="color_mode" type="checkbox" />
+          <label
+            class="btn-color-mode-switch-inner"
+            data-off="°C"
+            data-on="°F"
+            for="color_mode"
+          ></label>
+        </label>
+      </div>
+    </header>
+
+    <div class="weather-container">
+      <div class="today-weather">
+        <div class="today-weather-gradient">
+          <div class="today-date">
+            <h1 id="today-day">Monday</h1>
+            <h3 id="today">12/5/2024</h3>
+            <h3 id="cur-location">Paris, FR</h3>
+          </div>
+          <div class="today-temp">
+            <h1 id="cur-temp">29°C</h1>
+            <h2 id="cur-condition">Sunny</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-side">
+        <div class="info">
+          <div class="info-sub-class">
+            <h3>PRECIPITATION</h3>
+            <h4 id="cur-precipitation">0mm</h4>
+          </div>
+          <div class="info-sub-class">
+            <h3>HUMIDITY</h3>
+            <h4 id="cur-humidity">34%</h4>
+          </div>
+
+          <div class="info-sub-class">
+            <h3>WIND</h3>
+            <h4 id="cur-wind">0 km/h</h4>
+          </div>
+        </div>
+
+        <div class="days">
+          <div>
+            <h4 class="hour-forecast" data-hour="1">01:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="2">02:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="3">03:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="4">04:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="5">05:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="6">06:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="7">07:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="8">08:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="9">09:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="10">10:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="11">11:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="12">12:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="13">01:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="14">02:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="15">03:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="16">04:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="17">05:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="18">06:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="19">07:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="20">08:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="21">09:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="22">10:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="23">11:00</h4>
+            <h4>29°C</h4>
+          </div>
+          <div>
+            <h4 class="hour-forecast" data-hour="0">12:00</h4>
+            <h4>29°C</h4>
+          </div>
+        </div>
+
+        <div class="search-bar">
+          <form class="search-bar-form">
+            <input type="text" id="location" placeholder="Enter Location" />
+            <button id="submit-location">Change Location</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- <form action="">
+      <input
+        type="text"
+        name="location"
+        id="location"
+        placeholder="Enter Location"
+      />
+      <button id="submit-location">a</button>
+    </form> -->
+  </body>
+</html>
