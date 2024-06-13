@@ -4,6 +4,7 @@ const curTemp = document.querySelector("#cur-temp");
 const curWind = document.querySelector("#cur-wind");
 
 const hourForecast = document.querySelectorAll(".hour-forecast");
+const dfTemp = document.querySelectorAll(".df-temp");
 
 function toMiles(kms) {
   kms = Number(kms);
@@ -36,6 +37,11 @@ export function changeDegree() {
       let temp2 = hour.nextElementSibling.textContent.slice(0, -2);
       hour.nextElementSibling.textContent = toFahrenheit(temp2);
     }
+
+    for (const temp of dfTemp) {
+      let temp2 = temp.textContent.slice(0, -2);
+      temp.textContent = toFahrenheit(temp2);
+    }
   } else if (!switchDegree.checked) {
     let temp = curTemp.textContent.slice(0, -2);
     let wind = curWind.textContent.slice(0, -3);
@@ -45,6 +51,10 @@ export function changeDegree() {
     for (const hour of hourForecast) {
       let temp2 = hour.nextElementSibling.textContent.slice(0, -2);
       hour.nextElementSibling.textContent = toCelsius(temp2);
+    }
+    for (const temp of dfTemp) {
+      let temp2 = temp.textContent.slice(0, -2);
+      temp.textContent = toCelsius(temp2);
     }
   }
 }
