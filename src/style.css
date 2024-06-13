@@ -21,8 +21,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
+  overflow: hidden auto;
 }
 
 body.dark {
@@ -30,6 +32,44 @@ body.dark {
   --primary-clr: #ffffff;
   --secondary-clr: #222831;
   --third-clr: #e2e2e2;
+}
+
+/* Scroll bars */
+/* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
+/** {
+  scrollbar-width: thin;
+  scrollbar-color: #222831 #DFE9EB;
+}*/
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 20px;
+  background-color: #dfe9eb;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #b8c0c2;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #b8c0c2;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #222831;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #282f3b;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #343d4b;
 }
 
 /* Header  */
@@ -76,7 +116,7 @@ header {
 
 .btn-color-mode-switch > label.btn-color-mode-switch-inner:before {
   color: var(--secondary-clr);
-
+  margin-top: 3px;
   content: attr(data-on);
   position: absolute;
   font-size: 20px;
@@ -102,7 +142,8 @@ header {
   transition: all 0.3s ease;
   box-shadow: 0px 0px 6px -2px #111;
   padding: 5px 0px;
-  color: #222;
+  padding-top: 7px;
+  color: #222831;
   font-weight: 600;
 }
 
@@ -128,7 +169,6 @@ header {
   input[type="checkbox"]:checked
   + label.btn-color-mode-switch-inner:after {
   content: attr(data-on);
-
   left: 68px;
 }
 
@@ -305,17 +345,18 @@ header {
   overflow: auto hidden;
 }
 
-::-webkit-scrollbar {
+.days::-webkit-scrollbar {
   width: 1.5em;
   height: 0.65em;
 }
 
-::-webkit-scrollbar-thumb {
+.days::-webkit-scrollbar-thumb {
   background-color: var(--background);
   border-radius: 100vh;
 }
 
-::-webkit-scrollbar-track {
+.days::-webkit-scrollbar-track {
+  background-color: var(--third-clr);
   border-radius: 100vh;
   margin-inline: 0.4em;
 }
@@ -381,4 +422,57 @@ header {
 .search-bar button:hover {
   transform: scale(0.97);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+/* Daily forecast container  */
+
+.daily-forecast {
+  display: flex;
+  flex-direction: column;
+  width: 75vw;
+  background-color: var(--primary-clr);
+  border: 10px solid var(--primary-clr);
+  margin-top: 7vh;
+  margin-bottom: 10vh;
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.daily-forecast .d {
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--third-clr);
+  color: var(--secondary-clr);
+  font-weight: 800;
+  height: 100px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.headers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  height: 60px;
+  border-bottom: 1px solid var(--third-clr);
+}
+
+.headers h2 {
+  color: var(--secondary-clr);
+  margin-inline: 30px;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.headers h2:nth-of-type(3) {
+  margin-right: 30px;
 }
