@@ -445,12 +445,17 @@ header {
   color: var(--secondary-clr);
   font-weight: 800;
   height: 100px;
-
+  border-radius: 15px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   justify-content: space-between;
   align-items: center;
   text-align: center;
+}
+
+.daily-forecast .d:hover {
+  color: var(--primary-clr);
+  background-color: var(--secondary-clr);
 }
 
 .headers {
