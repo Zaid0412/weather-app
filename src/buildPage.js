@@ -70,8 +70,7 @@ export function buildPage(weatherData) {
       hour.nextElementSibling.textContent = `${curHourTemp}°C`;
     }
 
-    for (const [i, d] of dailyForecasts.entries()) {
-      console.log(dailyForecasts[i].childNodes);
+    for (const [i, _] of dailyForecasts.entries()) {
       const fd_temp = weatherData.forecast.forecastday[i].day.avgtemp_c;
       const fd_humidity = weatherData.forecast.forecastday[i].day.avghumidity;
       const fd_WeatherIcon =
