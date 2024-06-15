@@ -353,7 +353,7 @@ header {
 }
 
 .days::-webkit-scrollbar-thumb {
-  background-color: var(--background);
+  background-color: #343d4b;
   border-radius: 100vh;
 }
 
