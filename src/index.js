@@ -3,6 +3,7 @@ import { buildPage } from "./buildPage";
 
 const locationInput = document.querySelector("#location");
 const locationBtn = document.querySelector("#submit-location");
+const dailyForecasts = document.querySelectorAll(".d");
 
 /// Functions ///
 async function getWeather(location) {
@@ -15,6 +16,10 @@ async function getWeather(location) {
 }
 
 locationBtn.addEventListener("click", function (e) {
+  for (const d_ of dailyForecasts) {
+    d_.classList.remove("active");
+  }
+
   e.preventDefault();
   let location = locationInput.value;
   locationInput.value = "";
