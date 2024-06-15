@@ -70,7 +70,7 @@ export function buildPage(weatherData) {
       hour.nextElementSibling.textContent = `${curHourTemp}°C`;
     }
 
-    for (const [i, _] of dailyForecasts.entries()) {
+    for (const [i, d] of dailyForecasts.entries()) {
       const fd_temp = weatherData.forecast.forecastday[i].day.avgtemp_c;
       const fd_humidity = weatherData.forecast.forecastday[i].day.avghumidity;
       const fd_WeatherIcon =
@@ -88,6 +88,21 @@ export function buildPage(weatherData) {
       dailyForecasts[i].childNodes[5].textContent = `${fd_ChanceOfRain}%`;
       dailyForecasts[i].childNodes[7].textContent = `${fd_humidity}%`;
       dailyForecasts[i].childNodes[9].textContent = `${fd_temp}°C`;
+
+      d.addEventListener("click", (e) => {
+        curDay.textContent = day;
+        curTemp.textContent = `${fd_temp}°C`;
+        curCondition.textContent =
+          weatherData.forecast.forecastday[i].day.condition.text;
+
+        curPrecipitation.textContent = `${weatherData.forecast.forecastday[i].day.totalprecip_mm}mm`;
+        curHumidity.textContent = `${fd_humidity}%`;
+        curWind.textContent = `${weatherData.forecast.forecastday[i].day.maxwind_kph} km/h`;
+
+        let [yearNum, monthNum, dayNum] =
+          weatherData.forecast.forecastday[i].date.split("-");
+        curDate.textContent = `${monthNum}/${dayNum}/${yearNum}`;
+      });
     }
   }
 }
