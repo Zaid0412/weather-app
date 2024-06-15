@@ -96,6 +96,8 @@ export function buildPage(weatherData) {
         }
         d.classList.add("active");
 
+        switchDegree.checked = false;
+
         curDay.textContent = day;
         curTemp.textContent = `${fd_temp}°C`;
         curCondition.textContent =
