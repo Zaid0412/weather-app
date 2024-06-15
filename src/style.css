@@ -451,6 +451,7 @@ header {
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  cursor: pointer;
 }
 
 .daily-forecast .d:hover {
