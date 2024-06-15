@@ -456,6 +456,12 @@ header {
 .daily-forecast .d:hover {
   color: var(--primary-clr);
   background-color: var(--secondary-clr);
+  transform: scale(1.015);
+}
+
+.active {
+  color: var(--primary-clr) !important;
+  background-color: var(--secondary-clr) !important ;
 }
 
 .headers {

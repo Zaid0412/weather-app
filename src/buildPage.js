@@ -90,6 +90,12 @@ export function buildPage(weatherData) {
       dailyForecasts[i].childNodes[9].textContent = `${fd_temp}°C`;
 
       d.addEventListener("click", (e) => {
+        // Adding .active class to the day that was clicked
+        for (const d_ of dailyForecasts) {
+          d_.classList.remove("active");
+        }
+        d.classList.add("active");
+
         curDay.textContent = day;
         curTemp.textContent = `${fd_temp}°C`;
         curCondition.textContent =
@@ -102,6 +108,12 @@ export function buildPage(weatherData) {
         let [yearNum, monthNum, dayNum] =
           weatherData.forecast.forecastday[i].date.split("-");
         curDate.textContent = `${monthNum}/${dayNum}/${yearNum}`;
+
+        for (const hour of hourForecast) {
+          const curHourTemp =
+            weatherData.forecast.forecastday[i].hour[hour.dataset.hour].temp_c;
+          hour.nextElementSibling.textContent = `${curHourTemp}°C`;
+        }
       });
     }
   }
