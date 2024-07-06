@@ -39,8 +39,9 @@ function changeTheme() {
 // Takes the "time" as an argument and converts it to 12 hour format and returns it
 function hourTo12(time) {
   let curHour = Number(time.split(":")[0]);
+  let curMinutes = Number(time.split(":")[1]);
   if (curHour > 12) {
-    return (time = `${curHour - 12}:00 pm`);
+    return (time = `${curHour - 12}:${curMinutes} pm`);
     console.log(time);
   } else {
     return (time = `${time} am`);
