@@ -10,8 +10,9 @@ const switchDegree = document.querySelector("#color_mode");
 async function getWeather(location) {
   const response = await fetch(
     // `http://api.weatherapi.com/v1/forecast.json?key=eb9092c644364c0aaf2114454241006&q=${location}&days=7&aqi=no&alerts=no`,
-    `http://api.weatherapi.com/v1/forecast.json?key=eb9092c644364c0aaf2114454241006&q=${location}&days=10`,
-    { mode: "cors" }
+    `https://api.weatherapi.com/v1/forecast.json?key=eb9092c644364c0aaf2114454241006&q=${location}&days=10`,
+
+    { mode: "cors", referrerPolicy: "unsafe-url" }
   );
   const data = await response.json();
   return data;
